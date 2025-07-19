@@ -22,7 +22,7 @@
             padding: 1rem; /* Ensures some padding on very small screens */
         }
 
-        /* Chatbot specific styles */
+        /* Chatbot specific styles - SIMPLIFIED */
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -31,43 +31,44 @@
         }
 
         .chat-button {
-            background-color: #3c83f6;
+            background-color: #3c83f6; /* Main blue color */
             color: white;
-            border-radius: 9999px; /* Full rounded */
-            width: 60px;
-            height: 60px;
+            border-radius: 8px; /* Slightly rounded corners */
+            width: 50px; /* Slightly smaller */
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.8rem; /* Slightly smaller icon */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
             cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            transition: background-color 0.2s ease-in-out; /* Simpler transition */
         }
 
         .chat-button:hover {
-            transform: scale(1.05);
+            background-color: #2563eb; /* Darker blue on hover */
         }
 
         .chat-window {
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            width: 350px; /* Fixed width for desktop */
-            height: 450px; /* Fixed height for desktop */
+            border-radius: 8px; /* Consistent with button */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            width: 320px; /* Slightly narrower */
+            height: 400px; /* Slightly shorter */
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transform: translateY(20px);
+            transform: translateY(10px); /* Less dramatic initial transform */
             opacity: 0;
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-            pointer-events: none; /* Prevents interaction when hidden */
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out; /* Faster, simpler transition */
+            pointer-events: none;
+            border: 1px solid #e2e8f0; /* Subtle border */
         }
 
         .chat-window.open {
             transform: translateY(0);
             opacity: 1;
-            pointer-events: auto; /* Allows interaction when open */
+            pointer-events: auto;
         }
 
         @media (max-width: 640px) { /* Mobile responsiveness */
@@ -76,12 +77,12 @@
                 right: 10px;
             }
             .chat-window {
-                width: calc(100vw - 40px); /* Full width minus padding */
-                height: calc(100vh - 100px); /* Full height minus some space */
-                max-width: 400px; /* Max width for larger mobiles */
-                max-height: 600px; /* Max height for larger mobiles */
+                width: calc(100vw - 40px);
+                height: calc(100vh - 100px);
+                max-width: 350px; /* Adjusted max-width for mobile */
+                max-height: 500px; /* Adjusted max-height for mobile */
                 position: fixed;
-                bottom: 80px; /* Position above the FAB */
+                bottom: 70px; /* Position above the FAB */
                 right: 10px;
             }
         }
@@ -89,66 +90,70 @@
         .chat-header {
             background-color: #3c83f6;
             color: white;
-            padding: 1rem;
-            font-weight: bold;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
+            padding: 0.75rem 1rem; /* Slightly less padding */
+            font-weight: 500; /* Medium weight */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 1rem; /* Standard font size */
         }
 
         .chat-messages {
             flex-grow: 1;
-            padding: 1rem;
+            padding: 0.75rem; /* Slightly less padding */
             overflow-y: auto;
-            background-color: #f0f4f8; /* Light background for messages */
+            background-color: #f8f8f8; /* Lighter background for messages */
+            border-bottom: 1px solid #e2e8f0; /* Subtle separator */
         }
 
         .message-bubble {
-            max-width: 80%;
-            padding: 0.75rem 1rem;
-            border-radius: 1rem;
-            margin-bottom: 0.75rem;
+            max-width: 85%; /* Slightly wider bubbles */
+            padding: 0.6rem 0.9rem; /* Slightly less padding */
+            border-radius: 0.75rem; /* Less rounded */
+            margin-bottom: 0.6rem; /* Slightly less margin */
             word-wrap: break-word;
+            font-size: 0.9rem; /* Slightly smaller font */
         }
 
         .message-bubble.user {
             background-color: #3c83f6;
             color: white;
-            margin-left: auto; /* Align to right */
-            border-bottom-right-radius: 0.25rem; /* Pointy corner */
+            margin-left: auto;
+            border-bottom-right-radius: 0.25rem;
         }
 
         .message-bubble.bot {
-            background-color: #e2e8f0; /* Light gray */
-            color: #334155; /* Dark text */
-            margin-right: auto; /* Align to left */
-            border-bottom-left-radius: 0.25rem; /* Pointy corner */
+            background-color: #eef2f6; /* Lighter gray */
+            color: #4a5568; /* Slightly softer dark text */
+            margin-right: auto;
+            border-bottom-left-radius: 0.25rem;
         }
 
         .chat-input-area {
             display: flex;
-            padding: 1rem;
-            border-top: 1px solid #e2e8f0;
+            padding: 0.75rem; /* Slightly less padding */
+            border-top: none; /* Remove top border */
         }
 
         .chat-input {
             flex-grow: 1;
-            padding: 0.75rem;
+            padding: 0.6rem; /* Slightly less padding */
             border: 1px solid #cbd5e1;
-            border-radius: 0.5rem;
-            margin-right: 0.5rem;
-            font-size: 0.9rem;
+            border-radius: 0.4rem; /* Slightly less rounded */
+            margin-right: 0.4rem; /* Slightly less margin */
+            font-size: 0.85rem; /* Slightly smaller font */
         }
 
         .send-button {
             background-color: #3c83f6;
             color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
+            padding: 0.6rem 0.9rem; /* Slightly less padding */
+            border-radius: 0.4rem; /* Slightly less rounded */
             cursor: pointer;
             transition: background-color 0.2s;
+            font-size: 0.85rem; /* Match input font size */
         }
 
         .send-button:hover {
@@ -156,14 +161,13 @@
         }
 
         .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3c83f6;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            border: 3px solid #f3f3f3; /* Thinner border */
+            border-top: 3px solid #3c83f6; /* Thinner border */
+            width: 18px; /* Slightly smaller */
+            height: 18px;
             animation: spin 1s linear infinite;
-            margin-left: 0.5rem; /* Space next to text if needed */
-            display: inline-block; /* Aligns with text */
+            margin-left: 0.4rem;
+            display: inline-block;
             vertical-align: middle;
         }
 
@@ -225,7 +229,7 @@
             <div id="chatMessages" class="chat-messages">
                 <!-- Initial bot message -->
                 <div class="message-bubble bot">
-                    Hello! Our site is currently under maintenance. How can I help you?
+                    Hello! Our school digital voting platform is currently under maintenance. I can answer questions about the maintenance process. How can I help you?
                 </div>
             </div>
             <div class="chat-input-area">
@@ -285,9 +289,10 @@
 
                 try {
                     let chatHistory = [];
-                    // For a simple chatbot, we'll just send the current message.
-                    // For a more advanced one, you'd maintain a full conversation history.
-                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    // Provide context to the LLM about the website and its maintenance
+                    const contextPrompt = `You are a helpful chatbot for evotar a school digital voting platform that is currently under maintenance. Your purpose is to answer questions specifically about the maintenance process, the reason for it, and when the site is expected to be back online. Do not provide information outside of this context. If a question is unrelated to maintenance, politely state that you can only answer questions about the website's maintenance.`;
+                    
+                    chatHistory.push({ role: "user", parts: [{ text: contextPrompt + "\n\nUser query: " + userMessage }] });
 
                     const payload = { contents: chatHistory };
                     const apiKey = "AIzaSyBpiZC5gs13dMUdOo7HXKeQ4vDNDPv3P98"; // Canvas will automatically provide the API key
